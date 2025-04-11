@@ -1,0 +1,84 @@
+<!-- analyze.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analyze Sort</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html"><img  src="logo (2).png" alt="PixelSort" class="logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analyze.html">Analyze</a></li>
+        <li><a href="compare.html">Compare</a></li>
+      </ul>
+    </nav>
+
+    <h1>Analyze Sorting Algorithm</h1>
+    <div class="control-panel">
+      <input type="file" id="upload" accept="image/*" />
+      <label for="canvasSizeRange">Canvas Size:</label>
+      <input
+        type="range"
+        id="canvasSizeRange"
+        min="200"
+        max="1000"
+        value="500"
+      />
+      <span id="canvasSizeLabel">500 x 500</span>
+
+      <label for="gridSizeRange">Grid Size:</label>
+      <input type="range" min="4" max="32" value="8" id="gridSizeRange" />
+      <span id="gridSizeLabel">8x8</span>
+      <label for="speedRange">Speed:</label>
+      <input
+        type="range"
+        min="1"
+        max="100"
+        value="30"
+        id="speedRange"
+        title="Adjust animation speed"
+      />
+      <span id="speedLabel">30</span>
+      <select id="algorithmSelect">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="insertion">Insertion Sort</option>
+        <option value="quick">Quick Sort</option>
+        <option value="merge">Merge Sort</option>
+      </select>
+      <div class="control-buttons">
+        <button id="startBtn">▶️ Start</button>
+        <button id="pauseBtn" disabled>⏸ Pause</button>
+        <button id="stepBackBtn" disabled>⏮ Step Back</button>
+        <button id="stepForwardBtn" disabled>⏭ Step Forward</button>
+        <button id="resetBtn" disabled>🔁 Reset</button>
+      </div>
+    </div>
+
+    <canvas id="outputCanvas" width="600" height="600"></canvas>
+
+    <div id="stats">
+      <h2>Stats</h2>
+      <p id="steps">Steps: 0</p>
+      <p id="comparisons">Comparisons: 0</p>
+      <p id="swaps">Swaps: 0</p>
+      <p id="timeTaken">Time: 0.00s</p>
+      <p id="complexity">Complexity: -</p>
+    </div>
+
+    <div id="pseudocodeContainer">
+      <pre id="pseudocode"></pre>
+      <p id="explanation">Explanation will appear here...</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Load shared logic before the analyzer to ensure function availability -->
+    <script type="module" src="main.js"></script>
+    <script type="module" src="analyze.js"></script>
+  </body>
+</html>

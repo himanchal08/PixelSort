@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PixelSort</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="logo (2).png" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    body {
+      background-color: #410445;
+      color: #F6DC43;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #FF2DF1;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 1.5em;
+    }
+
+    .landing-buttons {
+      display: flex;
+      gap: 30px;
+    }
+
+    .landing-buttons a {
+      background-color: #A5158C;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .landing-buttons a:hover {
+      background-color: #FF2DF1;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1 id="hero">Welcome to PixelSort</h1>
+  <p>Visualize how sorting algorithms work using images sliced into tiles. Compare, analyze, and learn with animations!</p>
+
+  <div class="landing-buttons">
+    <a href="analyze.html">🔬 Analyze</a>
+    <a href="compare.html">⚖️ Compare</a>
+  </div>
+
+  <script>
+    gsap.from("#hero", { opacity: 0, y: -30, duration: 1 });
+    gsap.from(".landing-buttons a", {
+      opacity: 0,
+      y: 20,
+      stagger: 0.2,
+      duration: 0.8,
+      delay: 0.5
+    });
+  </script>
+</body>
+</html>
