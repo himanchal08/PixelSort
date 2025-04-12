@@ -65,7 +65,7 @@ export function initializeSorter(ctx, width, height, gridSize) {
         width: tileWidth,
         height: tileHeight,
         imageData,
-        index: y * gridSize + x, // ✅ Assign unique tile ID
+        index: y * gridSize + x, // Assign unique tile ID
       });
     }
   }

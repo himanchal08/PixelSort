@@ -107,10 +107,10 @@ function shuffleTiles(tiles) {
     [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
   }
 }
-
 function resetStats() {
   stepCount1 = comparisons1Count = swaps1Count = 0;
   stepCount2 = comparisons2Count = swaps2Count = 0;
+  endTime1 = endTime2 = null;
   steps1.textContent = `Steps: 0`;
   steps2.textContent = `Steps: 0`;
   comparisons1.textContent = `Comparisons: 0`;
@@ -122,6 +122,7 @@ function resetStats() {
   explanation1.textContent = "Explanation will appear here...";
   explanation2.textContent = "Explanation will appear here...";
 }
+
 
 startBtn.addEventListener("click", () => {
   if (!tiles1.length || !tiles2.length) return;
@@ -168,6 +169,9 @@ resetBtn.addEventListener("click", () => {
   running = false;
 });
 
+let endTime1 = null;
+let endTime2 = null;
+
 function stepOnce() {
   const ctx1 = canvasLeft.getContext("2d", { willReadFrequently: true });
   const ctx2 = canvasRight.getContext("2d", { willReadFrequently: true });
@@ -190,6 +194,9 @@ function stepOnce() {
     steps1.textContent = `Steps: ${stepCount1}`;
     comparisons1.textContent = `Comparisons: ${comparisons1Count}`;
     swaps1.textContent = `Swaps: ${swaps1Count}`;
+  } else if (!endTime1) {
+    endTime1 = performance.now();
+    time1.textContent = `Time: ${((endTime1 - startTime1) / 1000).toFixed(2)}s`;
   }
 
   if (!r2.done) {
@@ -201,13 +208,13 @@ function stepOnce() {
     steps2.textContent = `Steps: ${stepCount2}`;
     comparisons2.textContent = `Comparisons: ${comparisons2Count}`;
     swaps2.textContent = `Swaps: ${swaps2Count}`;
+  } else if (!endTime2) {
+    endTime2 = performance.now();
+    time2.textContent = `Time: ${((endTime2 - startTime2) / 1000).toFixed(2)}s`;
   }
 
   if (r1.done && r2.done) {
     running = false;
-    const endTime = performance.now();
-    time1.textContent = `Time: ${((endTime - startTime1) / 1000).toFixed(2)}s`;
-    time2.textContent = `Time: ${((endTime - startTime2) / 1000).toFixed(2)}s`;
     pauseBtn.disabled = true;
   }
 }

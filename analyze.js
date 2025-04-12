@@ -198,7 +198,7 @@ function stepOnce() {
     renderFinalImage(ctx, tiles, gridSize, true, highlight);
     
 
-    // 🔥 Highlight the current pseudocode line
+    // Highlight the current pseudocode line
     if (typeof val.line === "number") {
       document
         .querySelectorAll("#pseudocode pre")
@@ -214,7 +214,7 @@ function stepOnce() {
     )}s`;
     pauseBtn.disabled = true;
 
-    // ✅ Clear highlight when done
+    //  Clear highlight when done
     document
       .querySelectorAll("#pseudocode pre")
       .forEach((el) => el.classList.remove("active-line"));
